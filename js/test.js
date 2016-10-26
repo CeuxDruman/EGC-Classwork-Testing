@@ -1,34 +1,45 @@
 function testSum2Num() {
+	status = "OK";
 	if (sum(4, 2) != 6) {
-		alert("Error")
+		status = "FAIL";
 	}
+	return status;
 }
 
 function testSumWithZero() {
+	status = "OK";
 	if (sum(3, 0) != 3) {
-		alert("Error")
+		status = "FAIL";
 	}
 	if (sum(0, 3) != 3) {
-		alert("Error")
+		status = "FAIL";
 	}
+	return status;
 }
 
 
 function testSumWithNeg() {
+	status = "OK";
 	if (sum(6, -2) != 4) {
-		alert("Error")
+		status = "FAIL";
 	}
 	if (sum(-2, 6) != 4) {
-		alert("Error")
+		status = "FAIL";
 	}
 	if (sum(-3, -4) != -7) {
-		alert("Error")
+		status = "FAIL";
 	}
+	return status;
 }
 
 function sum(a, b) {
-	return a+b;
+	return sumar(a, b);
 }
 
-testSum2Num();
-testSumWithZero();
+function testIt() {
+	document.write("testSum2Num: " + testSum2Num());
+	document.write("\ntestSumWithZero: " + testSumWithZero());
+	document.write("\ntestSumWithNeg: " + testSumWithNeg());
+}
+
+testIt();
