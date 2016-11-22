@@ -1,45 +1,73 @@
-function testSum2Num() {
-	status = "OK";
+var testSum2Num = function() {
+	status = true;
 	if (sum(4, 2) != 6) {
-		status = "FAIL";
+		status = false;
 	}
 	return status;
 }
 
-function testSumWithZero() {
-	status = "OK";
+var testSumWithZero = function() {
+	status = true;
 	if (sum(3, 0) != 3) {
-		status = "FAIL";
+		status = false;
 	}
 	if (sum(0, 3) != 3) {
-		status = "FAIL";
+		status = false;
 	}
 	return status;
 }
 
 
-function testSumWithNeg() {
-	status = "OK";
+var testSumWithNeg = function() {
+	status = true;
 	if (sum(6, -2) != 4) {
-		status = "FAIL";
+		status = false;
 	}
 	if (sum(-2, 6) != 4) {
-		status = "FAIL";
+		status = false;
 	}
 	if (sum(-3, -4) != -7) {
-		status = "FAIL";
+		status = false;
 	}
 	return status;
 }
 
-function sum(a, b) {
-	return sumar(a, b);
+var testSumMoreThan2 = function() {
+	status = true;
+	if (sum(6, 2, -2) != 6) {
+		status = false;
+	}
+	if (sum(-2, 6, 6) != 10) {
+		status = false;
+	}
+	if (sum(-3, -4, 1, 1, 1, 1) != -3) {
+		status = false;
+	}
+	return status;
 }
 
-function testIt() {
-	document.write("testSum2Num: " + testSum2Num());
-	document.write("\ntestSumWithZero: " + testSumWithZero());
-	document.write("\ntestSumWithNeg: " + testSumWithNeg());
+function sum() {
+	return sumar(arguments);
 }
 
-testIt();
+function testIt(func) {
+	var execution = func();
+	console.log(execution)
+	var status = "success'>OK";
+	if ( execution != "true" ) {
+		status = "danger'>FAIL";
+	}
+
+ 	funcName = func.name;
+
+	document.write("<h1>" + funcName + ": <span class='label label-" + status + "</span></h1>");
+}
+
+function test() {
+	testIt(testSum2Num);
+	testIt(testSumWithZero);
+	testIt(testSumWithNeg);
+	testIt(testSumMoreThan2);
+}
+
+test();
