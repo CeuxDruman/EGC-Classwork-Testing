@@ -60,7 +60,11 @@ function testIt(func) {
 
  	funcName = func.name;
 
-	document.write("<h1>" + funcName + " | Status: <span class='label label-" + status + "</span></h1>");
+<<<<<<< HEAD
+	document.write("<h1>" + funcName + " <span class='label label-" + status + "</span></h1>");
+=======
+	document.write("<h1>" + funcName + " . Status: <span class='label label-" + status + "</span></h1>");
+>>>>>>> SumarLista
 }
 
 function test() {
