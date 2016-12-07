@@ -60,7 +60,7 @@ function testIt(func) {
 
  	funcName = func.name;
 
-	document.write("<h1>" + funcName + ": <span class='label label-" + status + "</span></h1>");
+	document.write("<h1>" + funcName + " <span class='label label-" + status + "</span></h1>");
 }
 
 function test() {
